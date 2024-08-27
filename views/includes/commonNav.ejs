@@ -1,0 +1,60 @@
+<div class="row">
+  <nav
+    class="navbar border-bottom border-body navbar-expand-lg"
+    style="background-color: #ac4141"
+    data-bs-theme="dark"
+  >
+    <div class="container-fluid">
+      <img src="images/logo2.png" alt="NotesPedia" width="120" height="60" />
+      <!-- <a class="navbar-brand" href="#">NotesPedia</a> -->
+      <button
+        class="navbar-toggler"
+        type="button"
+        data-bs-toggle="collapse"
+        data-bs-target="#navbarNav"
+        aria-controls="navbarNav"
+        aria-expanded="false"
+        aria-label="Toggle navigation"
+      >
+        <span class="navbar-toggler-icon"></span>
+      </button>
+      <div class="collapse navbar-collapse" id="navbarNav">
+        <ul class="navbar-nav ms-auto mx-2">
+          <li class="nav-item">
+            <a class="nav-link active" aria-current="page" href="/"
+              >🏠 Home |
+            </a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link active" href="/listnotes">Explore |</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link active" href="/notes">Upload Notes |</a>
+          </li>
+
+          <% if (!currUser) { %>
+
+          <li class="nav-item">
+            <a class="nav-link active" href="/login">👤Login | </a>
+          </li>
+
+          <li class="nav-item">
+            <a class="nav-link active" href="/register">✍️signup | </a>
+          </li>
+
+          <% } %> <% if(currUser){ %>
+          <li class="nav-item">
+            <a class="nav-link active" href=""
+              >Welcome: <%=currUser.username%> |
+            </a>
+          </li>
+
+          <li class="nav-item">
+            <a class="nav-link active" href="/logout">⬅️Logout</a>
+          </li>
+          <% } %>
+        </ul>
+      </div>
+    </div>
+  </nav>
+</div>

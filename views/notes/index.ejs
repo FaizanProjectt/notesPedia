@@ -1,0 +1,319 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link
+      rel="stylesheet"
+      href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css"
+    />
+    <title>NotesPedia</title>
+  </head>
+  <body>
+    <div class="row">
+    <nav
+      class="navbar border-bottom border-body navbar-expand-lg "
+      style="background-color: #9b3a3a"
+      data-bs-theme="dark"
+    >
+      <div class="container-fluid">
+        <img src="images/logo2.png" alt="Bootstrap" class="ms-3" width="140" height="70" />
+        <!-- <a class="navbar-brand" href="#">NotesPedia</a> -->
+        <button
+          class="navbar-toggler"
+          type="button"
+          data-bs-toggle="collapse"
+          data-bs-target="#navbarNav"
+          aria-controls="navbarNav"
+          aria-expanded="false"
+          aria-label="Toggle navigation"
+        >
+          <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarNav">
+          <ul class="navbar-nav ms-auto mx-2">
+            <li class="nav-item">
+              <a class="nav-link active" aria-current="page" href="/"
+                >🏠 Home</a
+              >
+            </li>
+            <li class="nav-item">
+              <a class="nav-link active" href="#about">📑About us</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link active" href="#how-it-works">🛠️How It Works</a>
+            </li>
+
+            <li class="nav-item">
+              <a class="nav-link active" href="#testimonials">👤Testimonials</a>
+            </li>
+
+            <li class="nav-item">
+              <a class="nav-link active" href="/notes">⬆️Upload</a>
+            </li>
+
+            <li class="nav-item">
+              <a class="nav-link active" href="/listNotes">🗺️Explore</a>
+            </li>
+
+            <li class="nav-item">
+              <a class="nav-link active" href="#contact">📞Contact us</a>
+            </li>
+
+            <% if (!currUser) { %>
+
+            <li class="nav-item">
+              <a class="nav-link active" href="/login">👤Login</a>
+            </li>
+
+            <li class="nav-item">
+              <a class="nav-link active" href="/register">✍️signup</a>
+            </li>
+
+            <li class="nav-item">
+              <a class="nav-link active" href="/admin/login">⚠️Admin-Login</a>
+            </li>
+
+            <% } %>
+
+            <% if(currUser){ %>
+
+              <li class="nav-item">
+                <a class="nav-link active" href=""
+                  >👥Welcome: <%=currUser.username%>
+                </a>
+              </li>
+
+              <li class="nav-item">
+                <a class="nav-link active" href="/logout">⬅️Logout</a>
+              </li>
+              <% } %>
+
+          </ul>
+        </div>
+      </div>
+    </nav>
+</div>
+
+<%-include("../includes/flash.ejs")%>;
+
+    <div class="container-fluid mt-1">
+      <div class="row mt-5">
+        <div class="col-md-8 mt-5">
+          <h1 class="display-4 mt-3">
+            Empower Your Education with Affordable Study Notes!
+          </h1>
+          <p class="lead">
+            Discover, upload, and download quality educational notes for less
+            than cost of Snacks.
+          </p>
+          <a href="/register" class="btn btn-success btn-lg">Join the Community!</a>
+        </div>
+        <div class="col-md-4 ">
+          <div class="mt-2" style="width: 13rem">
+            <img src="images/Designer.png" style="width: 19rem" alt="..." />
+          </div>
+        </div>
+      </div>
+    </div>
+
+    
+    <!-- introduction  -->
+    <div class="row container-fluid" style="background-color: #9b3a3a" px-3>
+      <div class="col ms-5 mt-5" style="height: 19rem">
+        <h2 class="display-4 text-center mt-2 text-white">Welcome to NotesPedia</h2><br>
+        <p class="ms-5 lead mt-2 text-white">
+          At NotesPedia, we believe that every student deserves access to
+          high-quality educational resources without stretching their budget.<br />
+          Our platform is designed to help you find the notes you need to excel
+          in your studies while giving you the chance to share your knowledge
+          and earn rewards.
+        </p>
+      </div>
+    </div>
+
+
+    <!-- notesseeker -->
+    <div class="row bg-light">
+      <div class="col-md-3">
+        <div class="bg-light" style="width: 10rem">
+          <img src="images/notes.png" style="width: 19rem" alt="..." />
+        </div>
+      </div>
+      <div class="col-md-8 mt-5">
+        <section id="note-seekers" class="info py-5 bg-light">
+          <div class="container">
+            <h2>For Note Seekers</h2>
+            <p>
+              Are textbooks and study materials putting a dent in your wallet?
+              Look no further! NotesPedia offers an extensive library of
+              educational notes covering various subjects at an unbeatable price
+              of less than Rs. 9. Whether you're preparing for exams,
+              researching for projects, or simply seeking to expand your
+              understanding, our notes are here to help you thrive.
+            </p>
+            <ul class="list-unstyled">
+              <li>
+                Comprehensive Content: Access a wide range of topics crafted by
+                fellow students.
+              </li>
+              <li>
+                Budget-Friendly: Enhance your studies without the financial
+                stress.
+              </li>
+              <li>
+                User-Friendly Interface: Find and download what you need with
+                just a few clicks.
+              </li>
+            </ul>
+            <a href="/listnotes" class="btn btn-primary btn-lg"
+              >Explore Educational Notes Now!</a
+            >
+          </div>
+        </section>
+      </div>
+    </div>
+
+    <!-- notes uploader -->
+    <div class="row" style="background-color: #9b3a3a">
+      <div class="col-md-8 mt-5">
+        <section id="note-uploaders" class="info py-5">
+            <div class="container ms-5 text-white">
+                <h2>For Note Uploaders</h2>
+                <p>Are you a knowledgeable student looking to make a little extra cash? Share your notes on NotesPedia and earn money based on the number of downloads! Every time someone benefits from your insights, you make a percentage of the revenue.</p>
+                <ul class="list-unstyled">
+                    <li>Make Money Helping Others: The more downloads, the higher your earnings!</li>
+                    <li>Easy Upload Process: Share your notes effortlessly and watch your income grow.</li>
+                    <li>Community Recognition: Become a valued contributor in our educational community.</li>
+                </ul>
+                <a href="/notes" class="btn btn-success btn-lg">Upload Your Notes Today!</a>
+            </div>
+        </section>
+       </div>
+
+       <div class="col-md-4 mt-5">
+        <div class="mt-5" style="width: 8rem">
+            <img src="images/upload.png" style="width: 19rem" alt="..." />
+          </div>
+       </div>
+
+       <!-- tesstimonial -->
+        <div class="container">
+            <div class="row bg-light">
+                <div class="col">
+                    <section id="testimonials" class="testimonials py-5">
+                        <div class="container">
+                            <h2 class="text-center ms-5 mb-4">What Our Users Are Saying</h2>
+                            <div class="row">
+                                <div class="col-md-4">
+                                    <blockquote class="blockquote">
+                                        <p class="mb-0">“This platform has transformed how I study! I've saved so much money and gained access to high-quality notes that really help me understand the material.”</p>
+                                         &nbsp⭐⭐⭐⭐⭐
+                                        <footer class="blockquote-footer mt-2">Md.Faizan Ahmad, B.Tech.Student</footer>
+                                    </blockquote>
+                                </div>
+                                <div class="col-md-4">
+                                    <blockquote class="blockquote">
+                                        <p class="mb-0">“Being able to upload my notes and earn from them is fantastic! I love sharing my knowledge while making money on the side.”</p>
+                                        &nbsp⭐⭐⭐⭐⭐
+                                        <footer class="blockquote-footer mt-2">Md.Azan, Engineering Student</footer>
+                                    </blockquote>
+                                </div>
+                                <div class="col-md-4">
+                                    <blockquote class="blockquote">
+                                        <p class="mb-0">“NotesPedia is my go-to for all my study needs. I can find notes for every subject without breaking the bank!”</p>
+                                        &nbsp⭐⭐⭐⭐⭐
+                                        <footer class="blockquote-footer mt-2">Md.Wasif Alam, B.C.A. student</footer>
+                                    </blockquote>
+                                </div>
+                            </div>
+                        <!-- </div> -->
+                    </section> 
+                </div>
+               </div>                
+        </div>
+
+        <!-- about us -->
+         <div class="row" style="background-color: #9b3a3a">
+              <div class="col-md-4 mt-5">
+                <div class="mt-5 ms-5" style="width: 8rem">
+                    <img src="images/about_us.png" style="width: 22rem" alt="..." />
+                  </div>
+            </div>
+            <div class="col-md-8">
+                <section id="about" class="about py-5">
+                    <div class="container text-white">
+                        <h2 class="ms-5">Who We Are</h2>
+                        <p class="ms-5">At NotesPedia, we’re passionate about democratizing education. Founded by students, for students, our mission is to make essential learning resources accessible and affordable for everyone. We believe that quality education should not only be within reach but also rewarding.</p>
+                        <p class="ms-5">Join us in creating a vibrant community driven by shared knowledge. Together, we are not just enhancing our studies but also empowering each other.</p>
+                    </div>
+                </section>
+            </div>
+          
+         </div>
+
+         <!-- how it work -->
+          <div class="row bg-light">
+            <div class="col-md-6">
+                <section id="how-it-works" class="how-it-works py-5">
+                    <div class="container">
+                        <h2 class="text-center mt-5"><u>Simple Steps to Get Started.</u></h2><br>
+                        <div class="text-center ms-auto">
+                           <b>1. Create an Account: Sign up easily in just a few clicks.</b><br><br>
+                           <b>2. Explore or Upload: Choose to search for notes or share your own.</b><br><br>
+                           <b>3. Start Learning or Earning: Download affordable notes or monetize your study materials today!</b><br><br>
+                        </div>
+                    </div>
+                </section>
+            </div>
+            <div class="col-md-6">
+                <div class="mt-3 ms-5" style="width: 8rem">
+                    <img src="images/hiw.png" style="width: 22rem" alt="..." />
+                  </div>
+            </div>
+          </div>
+          </div>
+
+
+          <!-- finalCall -->
+           <div class="row" style="background-color: #9b3a3a" >
+                <div class="col-md-4">
+                    <div class="mt-3 ms-5" style="width: 8rem">
+                        <img src="images/last_chance.png" style="width: 22rem" alt="..." />
+                      </div>
+                </div>
+                <div class="col-md-8">
+                    <section id="join" class="final-cta py-5 text-center text-white mt-3">
+                        <div class="container mt-5">
+                            <h2>Don't Miss Out!</h2>
+                            <p>Don't miss out on the opportunity to revolutionize your learning experience. Whether you're looking for affordable educational materials or eager to share your insights, NotesPedia is the perfect platform for you.</p>
+                            <a href="/register" class="btn btn-success btn-lg">Join NotesPedia Today!</a>
+                        </div>
+                    </section>
+                </div>
+            </div>
+           </div>
+
+           <!-- footer Section -->
+    <div class="row">
+    <footer id="contact" class="footer py-5 bg-dark text-white">
+        <div class="container text-center">
+            <div class="social mb-3">
+                <h3>✍️Stay Connected</h3>
+                <a href="#" class="text-white">Facebook</a>
+                <a href="#" class="text-white">Instagram</a>
+                <a href="#" class="text-white">Twitter</a>
+            </div>
+            <div class="contact-info">
+                <h3>📞Contact Us</h3>
+                <p>✉️Email: <a href="mailto:" class="text-white">support@notespedia.com</a></p>
+                <p>📞Phone: +91 8210590920</p>
+            </div>
+        </div>
+    </footer>
+</div>
+       
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+  </body>
+</html>

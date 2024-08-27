@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>NotesPedia</title>
+    <link rel="stylesheet" href="/styles/style.css" />
+    <link
+      rel="stylesheet"
+      href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css"
+    />
+  </head>
+  <body>
+    <%- include("../includes/commonNav.ejs")%>; <%-
+    include("../includes/flash.ejs")%>;
+
+    <div class="container mt-5">
+      <h1 class="mb-4 mt-3 text-center">Upload a Note</h1>
+      <div class="row mt-2">
+        <div class="col-6 offset-3">
+          <form action="/notes" method="POST" enctype="multipart/form-data">
+            <div class="form-group mt-2">
+              <label for="title">Title</label>
+              <input
+                type="text"
+                id="title"
+                name="title"
+                class="form-control"
+                required
+              />
+            </div>
+            <div class="form-group">
+              <label for="owner">Owner</label>
+              <input
+                type="text"
+                id="owner"
+                name="owner"
+                class="form-control"
+                required
+              />
+            </div>
+
+            <div class="form-group">
+              <label for="desc">Description</label>
+              <input
+                type="text"
+                id="desc"
+                name="desc"
+                class="form-control"
+                required
+              />
+            </div>
+
+            <div class="form-group mt-3">
+              <label for="file">File</label>
+              <input
+                type="file"
+                id="file"
+                name="streamfile"
+                class="form-control-file"
+                required
+              />
+            </div>
+            <button type="submit" class="btn btn-primary mt-2">Upload</button>
+          </form>
+        </div>
+      </div>
+    </div>
+
+    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.6/dist/umd/popper.min.js"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+  </body>
+</html>
