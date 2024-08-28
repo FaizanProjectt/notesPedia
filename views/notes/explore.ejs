@@ -12,35 +12,30 @@
   </head>
   <body>
     <%- include("../includes/commonNav.ejs") %> <%-
-    include("../includes/flash.ejs")%>;
-    <div class="row mt-3">
-        <div class="col-8 offset-3">
-          <h3><%=allListing.title%></h3>
-        </div>
-        <div class="card col-4 offset-3 show-card listing-card">
-          <img
-            src="../images/notes.jpg"
-            class="card-img-top show-img"
-            alt="listing_image"
-            height="height:40px"
-          />
-        </div>
-
-
-    <div class="row offset-3 mt-2">
-        <div class="col-8">
-            <p class="card-text">
-                🧑‍💼Owned By:-<i><b><%= allListing.owner %></b></i><br>
-              </p>
-
-              <p>
-                <%= allListing.desc %>
-              </p>
-              <!-- <a href="<%= allListing.fileUrl.url %>" download="<%= allListing.fileUrl.filename %>" target="_blank"><button class="btn btn-danger">Download Notes..</button></a> -->
-              <button id="download-btn" class="btn btn-danger">Download Note @ ₹9  </button><span class="text-danger"><b>&nbsp &nbsp ** Note:After pay Download notes once Back Closed, You have to Pay again..</b></span>
-        </div>
+    include("../includes/flash.ejs")%>
+  <div class="row mt-3">
+    <div class="col-8 offset-3">
+      <h3 class="offset-4 text-danger"><%=allListing.title%></h3>
     </div>
-
+    <div class="card col-6 offset-3 show-card listing-card mt-2">
+      <img
+        src="../images/notes.jpg"
+        class="card-img-top show-img mt-2"
+        style="height: 40%;"
+        alt="listing_image"
+      />
+      <div class="card-body">
+        <h5 class="card-title mt-2"></h5>
+        <p class="card-text">
+          🧑‍💼Owned By:-<i><b><%= allListing.owner %></b></i><br>
+          <h5><%= allListing.desc %></h5><br /><div class="spinner-grow spinner-grow-sm text-success" role="status">
+            <span class="visually-hidden">Loading...</span>
+          </div>
+          <button id="download-btn" class="btn btn-danger">Download Note @ ₹9  </button><span class="text-danger"><b><br>&nbsp ** Note:After pay Download notes once Back Closed, You have to Pay again..</b></span>
+        </p>
+      </div>
+    </div>
+    </div>
 
   <!-- Razorpay Checkout Script -->
 <script src="https://checkout.razorpay.com/v1/checkout.js"></script>
